@@ -2,6 +2,7 @@ package main
 
 import (
 	"covid19api/api"
+	"covid19api/twilio"
 	"fmt"
 	"log"
 	"time"
@@ -21,4 +22,8 @@ func main() {
 	log.Printf("Total Deaths Cases %d", covidSummary.TodayDeathsCase)
 
 	fmt.Println("Total Time ", time.Since(now))
+
+	waAPI := twilio.NewWhatsappAPI("AC80c8d0a3d34adf52d71fab74aa63522d", "44ad6f1289a5f9631a2ebb122f759604", "14155238886", "6285365861261")
+	waAPI.Text = fmt.Sprintf("Total Active Cases %d", covidSummary.ActiveCase)
+	waAPI.SendMessage()
 }
