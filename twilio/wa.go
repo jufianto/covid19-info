@@ -30,10 +30,10 @@ func NewWhatsappAPI(accountSID, token, from, to string) WhatsappAPI {
 func (a *WhatsappAPI) SendMessage() {
 	body := url.Values{}
 	body.Add("From", fmt.Sprintf("whatsapp:+%s", a.From))
-	body.Add("To", fmt.Sprintf("whatsapp:+%s", a.To))
+	body.Add("To", a.To)
 	body.Add("Body", a.Text)
-	url := fmt.Sprintf("https://api.twilio.com/2010-04-01/Accounts/%s/Messages.json", a.AccountSID)
-	req, err := http.NewRequest(http.MethodPost, url, strings.NewReader(body.Encode()))
+	URL := fmt.Sprintf("https://api.twilio.com/2010-04-01/Accounts/%s/Messages.json", a.AccountSID)
+	req, err := http.NewRequest(http.MethodPost, URL, strings.NewReader(body.Encode()))
 	if err != nil {
 		log.Println("ERROR WA", err)
 	}
