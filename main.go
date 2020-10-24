@@ -6,21 +6,19 @@ import (
 	"log"
 	"time"
 )
-func main(){
+
+func main() {
 	fmt.Println("Start The Application")
 	now := time.Now()
 
 	key := "ID"
 	controller := api.CountriesController{Repo: api.NewGetAPI()}
-	getCountry := controller.FindCountriesByISO(key)
-	covidInfo :=  controller.GetCovidInfoByCountries(getCountry.Slug)
+	covidInfo := controller.GetCovidInfoByCountries(key)
 	covidSummary := controller.GetCovidSummary()
-	totalActiveCase := covidSummary.Global.TotalConfirmed - covidSummary.Global.TotalDeaths - covidSummary.Global.TotalRecovered
-	log.Printf("%s Active Cases %d \n", getCountry.Country, covidInfo.Active)
-	log.Printf("%s Death %d \n", getCountry.Country, covidInfo.Deaths)
-	log.Printf("Total Active Cases %d", totalActiveCase)
-	log.Printf("Total Deaths Cases %d", covidSummary.Global.TotalDeaths)
-
+	log.Printf("%s Active Cases %d \n", covidInfo.Country, covidInfo.ActiveCase)
+	log.Printf("%s Death %d \n", covidInfo.Country, covidInfo.TodayDeathsCase)
+	log.Printf("Total Active Cases %d", covidSummary.ActiveCase)
+	log.Printf("Total Deaths Cases %d", covidSummary.TodayDeathsCase)
 
 	fmt.Println("Total Time ", time.Since(now))
 }
