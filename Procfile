@@ -1,1 +1,1 @@
-web: sh start.sh
+web: bin/covid19api
