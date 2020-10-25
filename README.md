@@ -28,6 +28,7 @@ because this app still using sanbox mode whatsapp, the number app must me regist
 # How to use demo example
 * Register number to sandbox Whatsapp with click [Here](https://api.whatsapp.com/send?phone=14155238886&text=join%20foreign-arrangement) 
 * after that send command base on list command in previous section
+![](docs/example.jpg?raw=true)
 
 
 # Next Feature 
