@@ -26,7 +26,12 @@ because this app still using sanbox mode whatsapp, the number app must me regist
 * view logs with `heroku logs --tail`
 
 # How to use demo example
-* 
+* Register number to sandbox Whatsapp with click [Here](https://api.whatsapp.com/send?phone=14155238886&text=join%20foreign-arrangement) 
+* after that send command base on list command in previous section
+* Test case `CASES ID` 
+* Test case `DEATHS ID`
+* Test case `CASES TOTAL`
+* Test case `DEATHS TOTAL `
 
 # Next Feature 
 * Check if country code not exist
